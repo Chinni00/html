@@ -18,18 +18,29 @@
   </form>
 
 <script>
-  let fName=document.getElementById('fullName');
-  let email=document.getElementById('email');
-  let phn=document.getElementById('phn');
-  let submitBtn=document.getElementById('submitBtn');
-submitBtn.addEventListener('click',(e)=>{
-  e.preventDefault()
-  localStorage.setItem('full name',fName.value);
-  localStorage.setItem('email',email.value);
-  localStorage.setItem('phone',phn.value);
+//   let fName=document.getElementById('fullName');
+//   let email=document.getElementById('email');
+//   let phn=document.getElementById('phn');
+//   let submitBtn=document.getElementById('submitBtn');
+// submitBtn.addEventListener('click',(e)=>{
+//   e.preventDefault()
+//   localStorage.setItem('full name',fName.value);
+//   localStorage.setItem('email',email.value);
+//   localStorage.setItem('phone',phn.value);
 
-})
-console.log( typeof(localStorage.getItem('full name')))
+// })
+// console.log( typeof(localStorage.getItem('full name')))
+
+let myObj={
+  name:'vinod',
+  age:27,
+  occupation:'nothing'
+}
+obj_stringify=JSON.stringify(myObj);
+localStorage.setItem('myObj',obj_stringify)
+obj_prase=JSON.parse( localStorage.getItem('myObj'))
+console.log(myObj)
+console.log(obj_prase)
 </script>
 
 </body>
