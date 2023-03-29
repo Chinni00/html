@@ -24,12 +24,29 @@
   let submitBtn=document.getElementById('submitBtn');
   submitBtn.addEventListener('click',(e)=>{
    e.preventDefault()
-    localStorage.setItem('name',name.value);
-    localStorage.setItem('email',email.value);
-    localStorage.setItem('phone',phn.value);
+   let nameVal=name.value;
+   let emailVal=email.value;
+   let phnVal=phn.value;
     let li=document.createElement('li');
-    li.textContent=`${name.value}-${email.value}-${phn.value}`;
+    let span=document.createElement('span');
+    span.textContent=`${nameVal}-${emailVal}-${phnVal}`;
+    let deleteBtn=document.createElement('button');
+    deleteBtn.textContent='delete';
+    deleteBtn.addEventListener('click',()=>{
+      list.removeChild(li);
+      localStorage.removeItem(`${nameVal}`)
+    });
+    li.appendChild(span);
+    li.appendChild(deleteBtn);
     list.appendChild(li);
+    let obj={
+      name:`${nameVal}`,
+      email:`${emailVal}`,
+      phone:`${phnVal}`,
+    }
+    localStorage.setItem(`${nameVal}`,JSON.stringify(obj));
+    name.value='',email.value='',phn.value='';
+    
   })
 
 </script>
