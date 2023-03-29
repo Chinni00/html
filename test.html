@@ -32,12 +32,23 @@
     span.textContent=`${nameVal}-${emailVal}-${phnVal}`;
     let deleteBtn=document.createElement('button');
     deleteBtn.textContent='delete';
+    let editBtn=document.createElement('button');
+    editBtn.textContent='Edit';
     deleteBtn.addEventListener('click',()=>{
       list.removeChild(li);
       localStorage.removeItem(`${nameVal}`)
     });
+    editBtn.addEventListener('click',()=>{
+      name.value=nameVal;
+      email.value=emailVal;
+      phn.value=phnVal;
+      list.removeChild(li);
+      localStorage.removeItem(`${nameVal}`)
+      
+    })
     li.appendChild(span);
     li.appendChild(deleteBtn);
+    li.appendChild(editBtn);
     list.appendChild(li);
     let obj={
       name:`${nameVal}`,
